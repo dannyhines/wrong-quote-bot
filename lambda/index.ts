@@ -1,11 +1,11 @@
 import { getQuote } from "./quote";
 import { sendTweet } from "./twitter";
-import { getRandomName } from "./helpers";
+import { randomStringFromFile } from "./helpers";
 
 exports.handler = async function (event: any, _context: any) {
   try {
     const quote = await getQuote();
-    const name = getRandomName();
+    const name = randomStringFromFile("famousPeople.txt");
     if (quote && name) {
       await sendTweet(`"${quote}"\n-${name}`);
     }

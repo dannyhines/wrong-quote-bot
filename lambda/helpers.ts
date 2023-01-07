@@ -1,14 +1,17 @@
-import fetch, { RequestInit } from "node-fetch";
+import fetch, { RequestInfo, RequestInit } from "node-fetch";
 import * as fs from "fs";
 
-export async function request<TResponse>(url: string, config: RequestInit = {}): Promise<TResponse> {
-  const response = await fetch(url, config);
+export async function request<TResponse>(
+  url: RequestInfo,
+  init?: RequestInit | undefined
+): Promise<TResponse> {
+  const response = await fetch(url, init);
   return (await response.json()) as TResponse;
 }
 
-// Get a random name from the .txt file
-export function getRandomName(): string {
-  const names = fs.readFileSync("famousPeople.txt", "utf-8").split("\n");
-  const randomIndex = Math.floor(Math.random() * names.length);
-  return names[randomIndex];
+// Get a random string from a .txt file
+export function randomStringFromFile(filename: string): string {
+  const items = fs.readFileSync(filename, "utf-8").split("\n");
+  const randomIndex = Math.floor(Math.random() * items.length);
+  return items[randomIndex];
 }
