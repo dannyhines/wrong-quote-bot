@@ -8,7 +8,7 @@ export class WrongQuoteBotStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const { TWITTER_SECRET_ARN } = process.env;
+    const { TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET } = process.env;
 
     const lambdaFunction = new lambda.Function(this, "CryptoTradingBot", {
       code: new lambda.AssetCode("lambda", {
@@ -18,7 +18,10 @@ export class WrongQuoteBotStack extends cdk.Stack {
       runtime: lambda.Runtime.NODEJS_14_X,
       functionName: "WrongQuoteBot",
       environment: {
-        TWITTER_SECRET_ARN: TWITTER_SECRET_ARN || "",
+        TWITTER_API_KEY: TWITTER_API_KEY || "",
+        TWITTER_API_SECRET: TWITTER_API_SECRET || "",
+        TWITTER_ACCESS_TOKEN: TWITTER_ACCESS_TOKEN || "",
+        TWITTER_ACCESS_SECRET: TWITTER_ACCESS_SECRET || "",
       },
     });
 
