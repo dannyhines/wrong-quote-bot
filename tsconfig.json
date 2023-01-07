@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target":"ES2018",
-    "module": "commonjs",
-    "lib": ["es2018"],
+    "target":"ES2019",
+    "module": "CommonJS",
+    "lib": ["es2019"],
     "declaration": true,
     "strict": true,
     "noImplicitAny": true,
@@ -17,7 +17,8 @@
     "inlineSources": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization":false,
-    "typeRoots": ["./node_modules/@types"]
+    "typeRoots": ["./node_modules/@types"],
+    "skipLibCheck": true
   },
-  "exclude": ["cdk.out"]
+  "exclude": ["cdk.out", "node_modules", "lambda/node_modules"]
 }
