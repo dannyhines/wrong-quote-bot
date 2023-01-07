@@ -1,0 +1,19 @@
+{
+  "name": "tweet-lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.6.7",
+    "twitter-api-v2": "^1.13.0"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.2",
+    "dotenv": "^16.0.3"
+  }
+}
