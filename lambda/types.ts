@@ -6,3 +6,7 @@ export interface QuoteObj {
   length: number;
   tags: string[];
 }
+
+export interface TrumpQuote {
+  value: string;
+}
