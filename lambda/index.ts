@@ -1,9 +1,12 @@
 import fetch, { RequestInit } from "node-fetch";
+import { sendTweet } from "./twitter";
 
 exports.handler = async function (event: any, _context: any) {
   console.log("in Lambda, EVENT:", event);
   try {
     const quote = await getQuote();
+    const name = "First Last";
+    await sendTweet(`"${quote}"\n-${name}`);
     return { message: quote };
   } catch (err) {
     console.log("Caught error: ", err);
@@ -41,8 +44,9 @@ async function request<TResponse>(url: string, config: RequestInit = {}): Promis
 
 // (async () => {
 //   try {
-//     const quote = await getQuote();
-//     console.log("quote is", quote);
+//     // const quote = await getQuote();
+//     // console.log("quote is", quote);
+//     await handler({}, {});
 //   } catch (error) {
 //     // Handle any error happened.
 //     console.log("didn't work");
