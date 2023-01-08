@@ -1,8 +1,8 @@
 export interface QuoteObj {
   _id: string;
-  content: string; // quote text
+  content: string;
   author: string;
-  authorSlug: string; // number of characters
+  authorSlug: string;
   length: number;
   tags: string[];
 }
