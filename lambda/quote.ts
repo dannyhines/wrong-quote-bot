@@ -2,18 +2,46 @@ require("dotenv").config();
 import { randomStringFromFile, request } from "./helpers";
 import { QuoteObj, TrumpQuote } from "./types";
 
-export async function getRandomQuote() {
-  let quote: string | boolean = false;
-  try {
-    const rand = Math.random();
-    if (rand < 0.1) {
-      quote = await getTrumpQuote();
-    } else if (rand < 0.4) {
-      quote = getLotrQuote();
-    } else {
-      quote = await getQuotableQuote();
+const sources: { [source: string]: number } = {
+  lotr: 0.2,
+  football: 0.2,
+  trump: 0.1,
+  theoffice: 0.1,
+  quotable: 0.3,
+};
+
+type Source = keyof typeof sources;
+
+function getRandomSource(): Source {
+  const totalWeight = Object.values(sources).reduce((sum, weight) => sum + weight, 0);
+  const randomWeight = Math.random() * totalWeight;
+  let cur = 0.0;
+  for (const source in sources) {
+    cur += sources[source];
+    if (randomWeight < cur) {
+      return source;
     }
-    return quote;
+  }
+  return "quotable";
+}
+
+export async function getRandomQuote(): Promise<string | false> {
+  try {
+    const source = getRandomSource();
+    switch (source) {
+      case "lotr":
+        return getLotrQuote();
+      case "football":
+        return getFootballQuote();
+      case "trump":
+        return await getTrumpQuote();
+      case "theoffice":
+        return getTheOfficeQuote();
+      case "quotable":
+        return await getQuotableQuote();
+      default:
+        return false;
+    }
   } catch (error) {
     console.log("Quotable API error -", error);
     return false;
@@ -49,3 +77,34 @@ async function getTrumpQuote() {
     return false;
   }
 }
+
+// ========= Football =========
+
+function getFootballQuote() {
+  return randomStringFromFile("footballQuotes.txt");
+}
+
+// ========= The Office =========
+
+function getTheOfficeQuote() {
+  return randomStringFromFile("theOfficeQuotes.txt");
+}
+
+// (async () => {
+//   try {
+//     // console.log(await getLotrQuote());
+//     const config = { headers: { Authorization: `Bearer ${process.env.LOTR_BEARER_TOKEN}` } };
+//     const quoteRes = await request<LotrQuoteResponse>("https://the-one-api.dev/v2/quote?page=3", config);
+//     console.log(quoteRes);
+//     writeDialogsToFile("lotrQuotes3.txt", quoteRes.docs);
+//   } catch (error) {
+//     // Handle any error happened.
+//     console.log("didn't work -", error);
+//   }
+// })();
+
+// const text = fs.readFileSync("emmitSmith.txt", "utf-8").split("\n");
+// const inRange = text.filter((q) => q.length > 50);
+// const onlyQuotes = inRange.map((line) => line.split(`"`)[1]);
+// const dialogLines = onlyQuotes.map((dialog) => dialog).join("\n");
+// fs.writeFileSync("footballQuotes.txt", dialogLines);

@@ -71,3 +71,5 @@ npm install -g aws-cdk
 - **Quotable API:** https://github.com/lukePeavey/quotable
 - **Lord of the Rings API:** https://the-one-api.dev/
 - **Trump Quotes:** https://www.tronalddump.io/
+- **Emmitt Smith:**: https://walterfootball.com/emmitt.php
+- **The Office Quotes:** https://www.kaggle.com/datasets/fabriziocominetti/the-office-lines
