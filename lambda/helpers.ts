@@ -11,7 +11,7 @@ export async function request<TResponse>(
 
 // Get a random string from a .txt file
 export function randomStringFromFile(filename: string): string {
-  const items = fs.readFileSync(filename, "utf-8").split("\n");
+  const items = fs.readFileSync("resources/" + filename, "utf-8").split("\n");
   const randomIndex = Math.floor(Math.random() * items.length);
   return items[randomIndex];
 }

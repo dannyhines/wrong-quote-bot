@@ -40,6 +40,7 @@ Dan "Big Cat" Katz
 David Beckham
 Desmond Tutu
 Donald Trump
+Dwight Schrute
 Ellie Goulding
 Elsa (Frozen, 2013)
 Elvis Presley
@@ -47,6 +48,7 @@ Ernest Hemingway
 Fidel Castro
 Forest Whitaker
 Franklin D. Roosevelt
+Gandalf
 George W. Bush
 George Clooney
 George Orwell
@@ -106,6 +108,7 @@ Matthew Perry
 Mel Gibson
 Michael Jackson
 Michael Jordon
+Michael Scott
 Mike Tyson
 Mikhail Gorbachev
 Miley Cyrus
@@ -166,6 +169,7 @@ Usain Bolt
 Vanessa Hudgens
 Vincent Van Gogh
 Walt Disney
+Wayne Gretzky -Michael Scott
 Whoopi Goldberg
 Will Arnett
 Will Smith
