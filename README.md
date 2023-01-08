@@ -36,7 +36,7 @@ cd lambda
 npm install      // download lambda's dependencies
 cd ..
 npm install      // download cdk's dependencies
-npm run build
+tsc
 ```
 
 This will download npm modules for both the infrastructure and the lambda code itself, and compile the
