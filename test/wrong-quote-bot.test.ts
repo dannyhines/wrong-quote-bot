@@ -1,21 +1,27 @@
-import { expect as expectCDK, haveResource } from '@aws-cdk/assert';
-import * as cdk from '@aws-cdk/core';
-import * as WrongQuoteBot from '../lib/wrong-quote-bot-stack';
+import { expect as expectCDK, haveResource } from "@aws-cdk/assert";
+import * as cdk from "@aws-cdk/core";
+import * as WrongQuoteBot from "../lib/wrong-quote-bot-stack";
 
-test('SQS Queue Created', () => {
-    const app = new cdk.App();
-    // WHEN
-    const stack = new WrongQuoteBot.WrongQuoteBotStack(app, 'MyTestStack');
-    // THEN
-    expectCDK(stack).to(haveResource("AWS::SQS::Queue",{
-      VisibilityTimeout: 300
-    }));
-});
-
-test('SNS Topic Created', () => {
+test("Lambda Created", () => {
   const app = new cdk.App();
   // WHEN
-  const stack = new WrongQuoteBot.WrongQuoteBotStack(app, 'MyTestStack');
+  const stack = new WrongQuoteBot.WrongQuoteBotStack(app, "MyTestStack");
   // THEN
-  expectCDK(stack).to(haveResource("AWS::SNS::Topic"));
+  expectCDK(stack).to(
+    haveResource("AWS::Lambda::Function", {
+      FunctionName: "WrongQuoteBot",
+    })
+  );
+});
+
+test("Cloudwatch Event Created", () => {
+  const app = new cdk.App();
+  // WHEN
+  const stack = new WrongQuoteBot.WrongQuoteBotStack(app, "MyTestStack");
+  // THEN
+  expectCDK(stack).to(
+    haveResource("AWS::Events::Rule", {
+      ScheduleExpression: "cron(0 0/1 * * ? *)",
+    })
+  );
 });
