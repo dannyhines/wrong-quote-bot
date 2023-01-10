@@ -4,7 +4,7 @@ import { QuoteObj, TrumpQuote } from "./types";
 
 const sources: { [source: string]: number } = {
   lotr: 0.2,
-  football: 0.2,
+  sports: 0.2,
   trump: 0.1,
   theoffice: 0.1,
   quotable: 0.3,
@@ -31,8 +31,8 @@ export async function getRandomQuote(): Promise<string | false> {
     switch (source) {
       case "lotr":
         return getLotrQuote();
-      case "football":
-        return getFootballQuote();
+      case "sports":
+        return getSportsQuote();
       case "trump":
         return await getTrumpQuote();
       case "theoffice":
@@ -78,9 +78,9 @@ async function getTrumpQuote() {
   }
 }
 
-// ========= Football =========
+// ========= Sports =========
 
-function getFootballQuote() {
+function getSportsQuote() {
   return randomStringFromFile("footballQuotes.txt");
 }
 
