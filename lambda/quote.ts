@@ -3,10 +3,12 @@ import { randomStringFromFile, request } from "./helpers";
 import { QuoteObj, TrumpQuote } from "./types";
 
 const sources: { [source: string]: number } = {
-  lotr: 0.2,
+  lotr: 0.3,
   sports: 0.2,
-  trump: 0.1,
-  theoffice: 0.1,
+  trump: 0.2,
+  theoffice: 0.2,
+  movie: 0.2,
+  rap: 0.1,
   quotable: 0.3,
 };
 
@@ -39,6 +41,10 @@ export async function getRandomQuote(): Promise<string | false> {
         return getTheOfficeQuote();
       case "quotable":
         return await getQuotableQuote();
+      case "movie":
+        return getMovieQuote();
+      case "rap":
+        return getRapQuote();
       default:
         return false;
     }
@@ -48,9 +54,7 @@ export async function getRandomQuote(): Promise<string | false> {
   }
 }
 
-// ========= Quotable API =========
-
-export async function getQuotableQuote() {
+async function getQuotableQuote() {
   try {
     const quoteObj = await request<QuoteObj>("https://api.quotable.io/random?minLength=50&maxLength=240");
     return quoteObj.content;
@@ -59,14 +63,6 @@ export async function getQuotableQuote() {
     return false;
   }
 }
-
-// ========= Lord of the Rings =========
-
-function getLotrQuote() {
-  return randomStringFromFile("lotrQuotes.txt");
-}
-
-// ========= Trump =========
 
 async function getTrumpQuote() {
   try {
@@ -78,16 +74,24 @@ async function getTrumpQuote() {
   }
 }
 
-// ========= Sports =========
-
-function getSportsQuote() {
-  return randomStringFromFile("footballQuotes.txt");
+function getLotrQuote() {
+  return randomStringFromFile("lotrQuotes.txt");
 }
 
-// ========= The Office =========
+function getSportsQuote() {
+  return randomStringFromFile("sportsQuotes.txt");
+}
 
 function getTheOfficeQuote() {
   return randomStringFromFile("theOfficeQuotes.txt");
+}
+
+function getMovieQuote() {
+  return randomStringFromFile("movieQuotes.txt");
+}
+
+function getRapQuote() {
+  return randomStringFromFile("rapQuotes.txt");
 }
 
 // (async () => {
