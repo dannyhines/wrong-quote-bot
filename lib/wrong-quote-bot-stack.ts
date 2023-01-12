@@ -26,7 +26,7 @@ export class WrongQuoteBotStack extends cdk.Stack {
     });
 
     const eventRule = new events.Rule(this, "quoteBotCronJob", {
-      schedule: events.Schedule.cron({ minute: "0", hour: "0/1" }),
+      schedule: events.Schedule.cron({ minute: "0", hour: "0/2" }),
     });
     eventRule.addTarget(new targets.LambdaFunction(lambdaFunction));
   }

@@ -21,7 +21,7 @@ test("Cloudwatch Event Created", () => {
   // THEN
   expectCDK(stack).to(
     haveResource("AWS::Events::Rule", {
-      ScheduleExpression: "cron(0 0/1 * * ? *)",
+      ScheduleExpression: "cron(0 0/2 * * ? *)",
     })
   );
 });
