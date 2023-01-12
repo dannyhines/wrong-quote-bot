@@ -1,7 +1,7 @@
 # Wrong Quote Bot
 
-This is a Twitter bot ([@wrongquote_bot](https://twitter.com/wrongquote_bot)) that publishes random quotes and
-quotes the wrong famous person.
+This is a Twitter bot ([@onlywrongquotes](https://twitter.com/onlywrongquotes)) that publishes random quotes
+and quotes the wrong famous person.
 
 This project is hosted in AWS, and the deployment is implemented with AWS CDK.
 
