@@ -1,9 +1,14 @@
 # Wrong Quote Bot
 
-This is a Twitter bot ([@onlywrongquotes](https://twitter.com/onlywrongquotes)) that publishes random quotes
-and quotes the wrong famous person.
+![GitHub repo size](https://img.shields.io/github/repo-size/danielchines/wrong-quote-bot)
+![GitHub repo file count (custom path)](https://img.shields.io/github/directory-file-count/danielchines/wrong-quote-bot/lambda?label=lambda%20files)
+![GitHub](https://img.shields.io/github/license/danielchines/wrong-quote-bot)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/danielchines/wrong-quote-bot)
 
-This project is hosted in AWS, and the deployment is implemented with AWS CDK.
+This is a Twitter bot ([@onlywrongquotes](https://twitter.com/onlywrongquotes)) that publishes random quotes,
+quoting the wrong person.
+
+The project is hosted in AWS, and the deployment is implemented with AWS CDK.
 
 The `lib/` folder has the code that creates the stack itself (`WrongQuoteBotStack`) which provisions a
 Cloudwatch rule that triggers a lambda function every 2 hours. The lambda gets a random quote, a random name,
