@@ -1,9 +1,9 @@
 # Wrong Quote Bot
 
-![GitHub repo size](https://img.shields.io/github/repo-size/danielchines/wrong-quote-bot)
-![GitHub repo file count (custom path)](https://img.shields.io/github/directory-file-count/danielchines/wrong-quote-bot/lambda?label=lambda%20files)
-![GitHub](https://img.shields.io/github/license/danielchines/wrong-quote-bot)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/danielchines/wrong-quote-bot)
+![GitHub repo size](https://img.shields.io/github/repo-size/danielchines/wrong-quote-bot?style=for-the-badge)
+![GitHub repo file count (custom path)](https://img.shields.io/github/directory-file-count/danielchines/wrong-quote-bot/lambda?label=lambda%20files&style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/danielchines/wrong-quote-bot?style=for-the-badge)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/danielchines/wrong-quote-bot?style=for-the-badge)
 
 This is a Twitter bot ([@onlywrongquotes](https://twitter.com/onlywrongquotes)) that publishes random quotes,
 quoting the wrong person.
