@@ -2,6 +2,8 @@ require("dotenv").config();
 import { randomStringFromFile, request } from "./helpers";
 import { QuoteObj, TrumpQuote } from "./types";
 
+type Source = keyof typeof sources;
+
 const sources: { [source: string]: number } = {
   lotr: 0.3,
   sports: 0.2,
@@ -11,21 +13,6 @@ const sources: { [source: string]: number } = {
   rap: 0.1,
   quotable: 0.3,
 };
-
-type Source = keyof typeof sources;
-
-function getRandomSource(): Source {
-  const totalWeight = Object.values(sources).reduce((sum, weight) => sum + weight, 0);
-  const randomWeight = Math.random() * totalWeight;
-  let cur = 0.0;
-  for (const source in sources) {
-    cur += sources[source];
-    if (randomWeight < cur) {
-      return source;
-    }
-  }
-  return "quotable";
-}
 
 export async function getRandomQuote(): Promise<string | false> {
   try {
@@ -54,7 +41,20 @@ export async function getRandomQuote(): Promise<string | false> {
   }
 }
 
-async function getQuotableQuote() {
+export function getRandomSource(): Source {
+  const totalWeight = Object.values(sources).reduce((sum, weight) => sum + weight, 0);
+  const randomWeight = Math.random() * totalWeight;
+  let cur = 0.0;
+  for (const source in sources) {
+    cur += sources[source];
+    if (randomWeight < cur) {
+      return source;
+    }
+  }
+  return "quotable";
+}
+
+export async function getQuotableQuote() {
   try {
     const quoteObj = await request<QuoteObj>("https://api.quotable.io/random?minLength=50&maxLength=240");
     return quoteObj.content;
@@ -64,7 +64,7 @@ async function getQuotableQuote() {
   }
 }
 
-async function getTrumpQuote() {
+export async function getTrumpQuote() {
   try {
     const quoteObj = await request<TrumpQuote>("https://api.tronalddump.io/random/quote");
     return quoteObj.value;
@@ -74,23 +74,23 @@ async function getTrumpQuote() {
   }
 }
 
-function getLotrQuote() {
+export function getLotrQuote() {
   return randomStringFromFile("lotrQuotes.txt");
 }
 
-function getSportsQuote() {
+export function getSportsQuote() {
   return randomStringFromFile("sportsQuotes.txt");
 }
 
-function getTheOfficeQuote() {
+export function getTheOfficeQuote() {
   return randomStringFromFile("theOfficeQuotes.txt");
 }
 
-function getMovieQuote() {
+export function getMovieQuote() {
   return randomStringFromFile("movieQuotes.txt");
 }
 
-function getRapQuote() {
+export function getRapQuote() {
   return randomStringFromFile("rapQuotes.txt");
 }
 
