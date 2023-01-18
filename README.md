@@ -49,10 +49,41 @@ typescript to javascript.
 
 ## Making Changes
 
-The `bin` directory contains the binary that creates the Cloudformation stack, and the `lib` folder is where
-you'll build the stack itself.
+The `bin` directory contains the binary that creates the infrastructure, which is a Cloudformation stack from
+the definition in the `lib` folder.
 
-Whether you change the lambda or the infrastructure, simply run `npm run build` from the root directory.
+The logic for the bot is in the `lambda` folder. The code and node_modules is a separate project within the
+project that gets sent to AWS when you deploy the lambda.
+
+To test the quotes you can run the npm script below, which will print a test tweet and the quotes from the
+different sources (this was easier than trying to set up Jest within the lambda directory):
+
+```bash
+cd lambda
+npm run print
+```
+
+Output:
+
+```
+> tweet-lambda@1.0.0 print [path-to-project]/wrong-quote-bot/lambda
+> tsc && node src/print.js
+
+--------------------------------------
+"Elementary, my dear Watson."
+-Gisele Bundchen
+--------------------------------------
+LOTR:   "Saved some for you Mr Frodo."
+SPORTS: "They started 6-2. Now, they're 6-3."
+TRUMP:  "Don't believe the millions of dollars of phony television ads by lightweight Rubio and the R establishment. Dishonest people!"
+OFFICE: "Thank you very much. Any other questions? Jim?"
+QUOTE:  "Good luck is another name for tenacity of purpose."
+MOVIE:  "I've got a feeling we're not in Kansas anymore."
+RAP:    "I’ll ignore you sellin crack, killin people, and keepin it real, but disrespect me and my adopted fam and die young like veal."
+```
+
+Whether you change the lambda or the infrastructure, simply run `tsc` or `npm run build` from the root
+directory, which will convert the code to Javascript.
 
 ## Deploy
 
@@ -63,6 +94,8 @@ You'll need to download the CDK CLI if you don't have it already:
 ```
 npm install -g aws-cdk
 ```
+
+And set up your AWS account and credentials with `aws configure`.
 
 ### Commands
 
