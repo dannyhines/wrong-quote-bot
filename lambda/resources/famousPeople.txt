@@ -1,5 +1,6 @@
 50 Cent
 Abraham Lincoln
+Adele
 Adolf Hitler
 Al Gore
 Alan Turing
@@ -18,6 +19,7 @@ Barack Obama
 Belle
 Benazir Bhutto
 Beyonce
+Bill Clinton
 Bill Cosby
 Bill Gates
 Billie Jean King
@@ -41,7 +43,9 @@ Corinthians 4:16
 Dalai Lama
 Dan "Big Cat" Katz
 David Beckham
+Denzel Washington
 Desmond Tutu
+Dolly Parton
 Donald Trump
 Dora the Explorer
 Dwight Schrute
@@ -49,6 +53,7 @@ Ellie Goulding
 Elsa (Frozen, 2013)
 Elvis Presley
 Elmo
+Elon Musk
 Ernest Hemingway
 Fidel Castro
 Forest Whitaker
@@ -64,10 +69,13 @@ Grimes
 Henry Ford
 Hilary Duff
 Hilary Swank
+Hillary Clinton
 Adolf Hilter
+Ice-T
 Ingrid Bergman
 J.K. Rowling
 J.R.R. Tolkien
+Jackie Chan
 Jaden Smith
 James Woods
 Jimmy Kimmel
@@ -75,12 +83,14 @@ Jimmy Wales
 John F. Kennedy
 John Lennon
 John M Keynes
+Johnny Depp
 Jon Stewart
 Joseph Stalin
 Justin Bieber
 Kanye West
 Kevin Hart
 Khloe Kardashian
+Kid Rock
 Kim Kardashian
 King Tut
 Kristen Bell
@@ -113,6 +123,7 @@ Martin Luther King
 Matthew McConaughey
 Matthew Perry
 Mel Gibson
+Melania Trump
 Michael Jackson
 Michael Jordon
 Michael Scott
@@ -168,7 +179,9 @@ Stalin
 Stephen Hawking
 Stephen King
 Steve Jobs
+Stevie Wonder
 Sting
+Ted Cruz
 Thomas Edison
 Tiger Woods
 Tim Berners Lee
